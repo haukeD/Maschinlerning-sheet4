@@ -13,6 +13,8 @@
 %auch für Bäume
 %http://tex.stackexchange.com/questions/183866/tree-with-six-or-more-children
 \usepackage{tikz, tikz-qtree}
+\usepackage{pgfplots}
+\usetikzlibrary{automata,topaths,plotmarks}
 \usepackage{lmodern}  %THE tex font :)
 \usepackage{url}  %urls in references
 %\usepackage{prettyref}
@@ -522,5 +524,104 @@ $x^{(8)}$ &  2.2360679775 &  4.472135955 &  6.40312423743 &  1.41421356237 &  5.
 \end{tabular}
 }
 \end{table}
+
+\begin{figure}
+\includegraphics[scale=1]{3a}
+\end{figure}
+
+\begin{enumerate}
+\item Wähle Cluster Mittelwerte
+$$
+m^{(0)} = 
+\begin{pmatrix}
+7 \\ 4
+\end{pmatrix}, 
+m^{(1)} = 
+\begin{pmatrix}
+3.5 \\ 9
+\end{pmatrix}, 
+m^{(2)} = 
+\begin{pmatrix}
+1.5 \\ 3,5
+\end{pmatrix}, 
+$$
+
+
+\begin{tikzpicture}
+\begin{axis}[
+axis y line=center,
+        axis x line=middle, 
+        axis on top=true,
+        xmin=-1,
+        xmax=10,
+        ymin=-1,
+        ymax=11,
+        clip=false
+]
+\addplot [only marks] table {
+2 10
+2  5
+8  4   
+5  8
+7  5
+6  4
+1  2
+4  9
+};
+\addplot [only marks, mark=o] table {
+7   4
+3.5   9
+1.5 3.5
+};
+
+\node [below] at (axis cs:  7,  4) {$m^{(0)}$};
+\node [above] at (axis cs:  3.5,  9) {$m^{(1)}$};
+\node [right] at (axis cs:  1.5, 3.5) {$m^{(2)}$};
+
+\end{axis}
+\end{tikzpicture}
+
+
+\item Erstelle cluster
+
+\begin{tikzpicture}
+\begin{axis}[
+axis y line=center,
+        axis x line=middle, 
+        axis on top=true,
+        xmin=-1,
+        xmax=10,
+        ymin=-1,
+        ymax=11,
+        clip=false
+]
+\addplot [only marks, color=red] table {
+8  4   
+7  5
+6  4
+};
+\addplot [only marks, color=green] table {
+2 10   
+5  8
+4  9
+};
+\addplot [only marks, color=blue] table {
+2  5
+1  2
+};
+\addplot [only marks, mark=o] table {
+7   4
+3.5   9
+1.5 3.5
+};
+
+\node [below] at (axis cs:  7,  4) {$m^{(0)}$};
+\node [above] at (axis cs:  3.5,  9) {$m^{(1)}$};
+\node [right] at (axis cs:  1.5, 3.5) {$m^{(2)}$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{enumerate}
 
 \end{document}

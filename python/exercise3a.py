@@ -37,7 +37,25 @@ print "\\end{tabular}"
 print "}"
 print "\\end{table}"
 
-plt.plot(D[:,0], D[:,1],'o')
+plt.plot(D[:,0], D[:,1],'.')
 plt.grid(b=True, which='both', color='0.65',linestyle='-')
 
-plt.savefig('../3a.pdf')
+plt.savefig('../3a1.pdf')
+
+M = np.array([[7, 4], [4, 9], [1.5, 3.5]])
+plt.plot(M[:,0], M[:,1],'ro')
+
+plt.savefig('../3a2.pdf')
+
+for i in range(D.shape[0]):
+    p = M[0] - D[i]
+    min_p_i = 0
+    minL = np.sqrt(p.dot(p))
+    for j in range(1, M.shape[0]):
+        p = M[j] - D[i]
+        minLNew = np.sqrt(p.dot(p))
+        if minLNew < minL:
+            minL = minLNew
+            min_p_i = j
+        #plt.plot([D[i, 0], M[min_p_i, 0]], [D[i, 1], M[min_p_i, 1]], '-')
+plt.savefig('../3a3.pdf')
