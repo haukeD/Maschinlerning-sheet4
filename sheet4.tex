@@ -1,0 +1,268 @@
+%inizative bildverarbeitung
+%llncs    article
+\documentclass[a4paper,parskip=full-]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{subcaption}
+\usepackage{float}
+\restylefloat{figure}
+\usepackage{graphicx}  % images
+%\usepackage{qtree} % for trees
+%auch für Bäume
+%http://tex.stackexchange.com/questions/183866/tree-with-six-or-more-children
+\usepackage{tikz, tikz-qtree}
+\usepackage{lmodern}  %THE tex font :)
+\usepackage{url}  %urls in references
+%\usepackage{prettyref}
+%\usepackage{pstricks} %graphicv2
+\usepackage{cite}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{algorithmic} 
+\usepackage{wasysym}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc} % Zeichenkodierung   utf8   latin1
+%\include{biblio} % references
+\usepackage{listings}                           % for source code inclusion
+\usepackage{multirow} 
+\usepackage{caption}
+\usepackage{wrapfig}
+%absatz
+\usepackage{setspace} 
+
+%breaking math formulars automaticly
+%http://tex.stackexchange.com/questions/3782/how-can-i-split-an-equation-over-two-lines
+\usepackage{breqn}
+
+%für kurze Enumarates wie i,I a, A etc.
+\usepackage[shortlabels]{enumitem}
+
+%Durchstreichungen
+%\cancel
+%http://de.wikibooks.org/wiki/LaTeX-Kompendium:_F%C3%BCr_Mathematiker#Durchstreichungen
+\usepackage{cancel}
+
+%Für Römische Zahlen
+\usepackage{enumitem}
+%\usepackage{romannum}%stdclsdv
+
+%Durchstreicen möglich
+\usepackage[normalem]{ulem}
+
+%Bessere Brüche
+\usepackage{nicefrac}
+
+%bookmarks
+%\usepackage[pdftex,bookmarks=true]{hyperref}
+%[pdftex,bookmarks=true,bookmarksopen,bookmarksdepth=2]
+\usepackage{hyperref}
+%\usepackage{scrhack}
+
+%fußnoten
+\usepackage{footnote}
+\usepackage{caption} 
+
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=15mm,rmargin=20mm}
+
+%randnotiz
+\newcommand\mpar[1]{\marginpar {\flushleft\sffamily\small #1}}
+\setlength{\marginparwidth}{3cm}
+
+%svg Grafiken
+%http://tex.stackexchange.com/questions/122871/include-svg-images-with-the-svg-package
+%\usepackage{svg}
+
+\usepackage{pgf}
+
+%http://tex.stackexchange.com/questions/48653/making-subsections-be-numbered-with-a-b-c
+\usepackage{chngcntr}
+\counterwithin{subsection}{section}
+
+%Sektions nicht Nummerrrieren (<=> section*{...})
+% \makeatletter
+% \renewcommand\@seccntformat[1]{}
+% \makeatother
+\setcounter{secnumdepth}{0}
+
+\title{Machine Learning \\
+Exercise sheet 3}
+
+\author{Gruppe 9: \\Hauke Wree and Fridtjof Schulte Steinberg}
+
+\newcommand{\R}[0]{{\mathbb{R}}}
+
+\newcommand{\N}[0]{{\mathbb{N}}}
+\newcommand{\C}[0]{{\mathbb{C}}}
+\newcommand{\K}[0]{{\mathbb{K}}}
+\newcommand{\lF}[0]{{\mathcal{l}}}
+\newcommand{\I}[0]{{\mathcal{I}}}
+\newcommand{\nhnh}[0]{{\frac{n}{2} \times \frac{n}{2}}} %nice
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\newcommand{\rm}[1]{\romannumeral #1}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}} 
+
+\renewcommand \thesubsection{\alph{subsection}}
+
+\begin{document}
+
+\maketitle
+
+\section{Exercise 1 (Decision trees for Boolean functions):}
+
+\subsection{a)}
+
+\begin{enumerate}[label={\alph*)}]
+
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & $A \land \neg B$ \\
+\hline
+0 & 0 & 0 \\
+\hline
+0 & 1 & 0 \\
+\hline
+1 & 0 & 1 \\
+\hline
+1 & 1 & 0 \\
+\hline
+\end{tabular}
+
+\Tree [.XP 
+    [.XP 
+        [.X tri ] 
+        [.YP [.Y tra ] ] ] 
+    [.Z trullala ] ]
+
+\item
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+A & B & C & $B \land C$  & $A \lor [B \land B$] \\
+\hline
+0 & 0 & 0 & 0 & 0\\
+\hline
+0 & 0 & 1 & 0 & 0\\
+\hline
+0 & 1 & 0 & 0 & 0\\
+\hline
+0 & 1 & 1 & 1 & 1\\
+\hline
+1 & 0 & 0 & 0 & 1\\
+\hline
+1 & 0 & 1 & 0 & 1\\
+\hline
+1 & 1 & 0 & 0 & 1\\
+\hline
+1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+
+\item
+
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & $A XOR B$ \\
+\hline
+0 & 0 & 0 \\
+\hline
+0 & 1 & 1 \\
+\hline
+1 & 0 & 1 \\
+\hline
+1 & 1 & 0 \\
+\hline
+\end{tabular}
+
+\item
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+A & B & C & $B \land C$  & $A \lor [B \land B$] \\
+\hline
+0 & 0 & 0 & 0 & 0\\
+\hline
+0 & 0 & 1 & 0 & 0\\
+\hline
+0 & 1 & 0 & 0 & 0\\
+\hline
+0 & 1 & 1 & 1 & 1\\
+\hline
+1 & 0 & 0 & 0 & 1\\
+\hline
+1 & 0 & 1 & 0 & 1\\
+\hline
+1 & 1 & 0 & 0 & 1\\
+\hline
+1 & 1 & 1 & 1 & 1\\
+\hline
+\end{tabular}
+
+\item
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+A & B & C & D & $A \land B$ & $C \land D$ & $[A \land B] \lor [C \land D]$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 1 & 0 & 0 & 0  \\
+\hline
+0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 0 & 1 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 0 & 0 & 1 & 0 & 1 \\
+\hline
+1 & 1 & 0 & 1 & 1 & 0 & 1 \\
+\hline
+1 & 1 & 1 & 0 & 1 & 0 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+
+\end{tabular}
+
+\end{enumerate}
+
+\section{Exercise 2 (Decision tree learning)}
+
+\subsection{a)}
+
+\begin{enumerate}[i]
+
+\item
+
+\Tree [.deadline 
+    [.Urgent
+        \edge node[auto=right,pos=.6] {party ?}; 
+        [. tri ] 
+        [.YP [.Y tra ] ] ] 
+    [.Near trullala ] 
+    [.None trullala ] ]
+
+\end{enumerate}
+
+
+
+\end{document}
