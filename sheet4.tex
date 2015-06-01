@@ -116,9 +116,11 @@ Exercise sheet 3}
 
 \subsection{a)}
 
-\begin{enumerate}[label={\alph*)}]
 
-\item
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+
 \begin{tabular}{|c|c|c|}
 \hline
 A & B & $A \land \neg B$ \\
@@ -132,6 +134,10 @@ A & B & $A \land \neg B$ \\
 1 & 1 & 0 \\
 \hline
 \end{tabular}
+
+\end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
 
 \begin{tikzpicture}[every tree node/.style={draw,circle},
    level distance=1.25cm,sibling distance=1cm,
@@ -149,9 +155,17 @@ A & B & $A \land \neg B$ \\
     ]
 ]
 \end{tikzpicture}
+\end{subfigure}
+
+\end{figure}
 
 %b)
-\item
+\subsection{b)}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+
 \begin{tabular}{|c|c|c|c|c|}
 \hline
 A & B & C & $B \land C$  & $A \lor [B \land B$] \\
@@ -173,6 +187,10 @@ A & B & C & $B \land C$  & $A \lor [B \land B$] \\
 1 & 1 & 1 & 1 & 1\\
 \hline
 \end{tabular}
+
+\end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
 
 \begin{tikzpicture}[every tree node/.style={draw,circle},
    level distance=1.25cm,sibling distance=1cm,
@@ -197,8 +215,16 @@ A & B & C & $B \land C$  & $A \lor [B \land B$] \\
 ]
 \end{tikzpicture}
 
+\end{subfigure}
+
+\end{figure}
+
 %c)
-\item
+\subsection{c)}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
 
 \begin{tabular}{|c|c|c|}
 \hline
@@ -213,6 +239,10 @@ A & B & $A XOR B$ \\
 1 & 1 & 0 \\
 \hline
 \end{tabular}
+
+\end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
 
 \begin{tikzpicture}[every tree node/.style={draw,circle},
    level distance=1.25cm,sibling distance=1cm,
@@ -236,8 +266,16 @@ A & B & $A XOR B$ \\
 ]
 \end{tikzpicture}
 
+\end{subfigure}
+
+\end{figure}
+
 %d)
-\item
+\subsection{d)}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
 
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -278,6 +316,10 @@ A & B & C & D & $A \land B$ & $C \land D$ & $[A \land B] \lor [C \land D]$ \\
 
 \end{tabular}
 
+\end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+
 \begin{tikzpicture}[every tree node/.style={draw,circle},
    level distance=1.25cm,sibling distance=1cm,
    edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
@@ -306,7 +348,9 @@ A & B & C & D & $A \land B$ & $C \land D$ & $[A \land B] \lor [C \land D]$ \\
 ]
 \end{tikzpicture}
 
-\end{enumerate}
+\end{subfigure}
+
+\end{figure}
 
 \section{Exercise 2 (Decision tree learning)}
 
