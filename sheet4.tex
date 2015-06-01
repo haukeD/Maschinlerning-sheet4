@@ -433,4 +433,94 @@ Entscheidungsbaum auch so sein kann.
 ]
 \end{tikzpicture}
 
+\subsection{c)}
+
+\begin{tikzpicture}[every tree node/.style={draw,circle},
+   level distance=2.25cm,sibling distance=2cm,
+   edge from parent path={(\tikzparentnode) -- (\tikzchildnode)},scale=.55]
+\Tree
+[.{Deadline ?}
+    \edge node[auto=right] {Urgent};
+    [.{Party ?} 
+       \edge node[midway,left] {no};
+       [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.Study ]
+         \edge node[midway,left] {yes};
+         [.Study ]
+       ]
+       \edge node[midway,right] {yes};
+       [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.{?} ]
+         \edge node[midway,left] {yes};
+         [.Party ]
+       ]
+    ]
+    \edge node[auto=left] {Near};
+    [.{Party ?} 
+        \edge node[midway,left] {no};
+        [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.Study ]
+         \edge node[midway,left] {yes};
+         [.TV ]
+        ]
+        \edge node[midway,right] {yes};
+        [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.{?} ]
+         \edge node[midway,left] {yes};
+         [.Party ]
+        ]
+    ]
+    \edge node[auto=left] {None};
+    [.{Party ?} 
+        \edge node[midway,left] {no};
+        [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.{?} ]
+         \edge node[midway,left] {yes};
+         [.Party ]
+        ]
+        \edge node[midway,right] {yes};
+        [.{Lazy ?} 
+         \edge node[midway,left] {no};
+         [.Party ]
+         \edge node[midway,left] {yes};
+         [.{?} ]
+        ]
+    ]
+]
+\end{tikzpicture}
+
+\section{Exercise 3 (Unsupervised learning – k-means clustering):}
+
+\begin{table}[tch]
+
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|}
+\hline
+          &  $x^{(1)}$ & $x^{(2)}$ & $x^{(3)}$ & $x^{(4)}$ & $x^{(5)}$ & $x^{(6)}$ & $x^{(7)}$ & $x^{(8)}$ \\
+\hline
+$x^{(1)}$ &  0.0 &  5.0 &  8.48528137424 &  3.60555127546 &  7.07106781187 &  7.21110255093 &  8.0622577483 &  2.2360679775 \\
+\hline
+$x^{(2)}$ &  5.0 &  0.0 &  6.0827625303 &  4.24264068712 &  5.0 &  4.12310562562 &  3.16227766017 &  4.472135955 \\
+\hline
+$x^{(3)}$ &  8.48528137424 &  6.0827625303 &  0.0 &  5.0 &  1.41421356237 &  2.0 &  7.28010988928 &  6.40312423743 \\
+\hline
+$x^{(4)}$ &  3.60555127546 &  4.24264068712 &  5.0 &  0.0 &  3.60555127546 &  4.12310562562 &  7.21110255093 &  1.41421356237 \\
+\hline
+$x^{(5)}$ &  7.07106781187 &  5.0 &  1.41421356237 &  3.60555127546 &  0.0 &  1.41421356237 &  6.7082039325 &  5.0 \\
+\hline
+$x^{(6)}$ &  7.21110255093 &  4.12310562562 &  2.0 &  4.12310562562 &  1.41421356237 &  0.0 &  5.38516480713 &  5.38516480713 \\
+\hline
+$x^{(7)}$ &  8.0622577483 &  3.16227766017 &  7.28010988928 &  7.21110255093 &  6.7082039325 &  5.38516480713 &  0.0 &  7.61577310586 \\
+\hline
+$x^{(8)}$ &  2.2360679775 &  4.472135955 &  6.40312423743 &  1.41421356237 &  5.0 &  5.38516480713 &  7.61577310586 &  0.0 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
 \end{document}
