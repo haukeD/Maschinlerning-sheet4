@@ -33,7 +33,7 @@ plt.grid(b=True, which='both', color='0.65',linestyle='-')
 
 plt.savefig('../3a1.pdf')
 
-M = np.array([[2, 10], [5, 8], [1, 2]])
+M = np.array([[2, 10], [6, 6], [1.5, 3.5]])
 plt.plot(M[:,0], M[:,1],'ro')
 
 plt.savefig('../3a2.pdf')

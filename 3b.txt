@@ -1,0 +1,42 @@
+number of features: 2
+number of samples: 8
+
+
+Iteration: 1
+cluster center: 
+[[  2.   10. ]
+ [  6.    6. ]
+ [  1.5   3.5]]
+
+labels of training patterns: 
+[0 2 1 1 1 1 2 1]
+
+Iteration: 2
+cluster center: 
+[[ 3.    9.5 ]
+ [ 6.5   5.25]
+ [ 1.5   3.5 ]]
+
+labels of training patterns: 
+[0 2 1 1 1 1 2 0]
+
+Iteration: 3
+cluster center: 
+[[ 3.66666667  9.        ]
+ [ 7.          4.33333333]
+ [ 1.5         3.5       ]]
+
+labels of training patterns: 
+[0 2 1 0 1 1 2 0]
+
+Iteration: 4
+cluster center: 
+[[ 3.66666667  9.        ]
+ [ 7.          4.33333333]
+ [ 1.5         3.5       ]]
+
+labels of training patterns: 
+[0 2 1 0 1 1 2 0]
+
+max_iter
+4

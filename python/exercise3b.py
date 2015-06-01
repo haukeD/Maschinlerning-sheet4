@@ -23,23 +23,25 @@ n_samples, n_features = data.shape
 
 # specify parameters of kmeans
 init_cluster = np.array([ [2.0,10.0], [5.0,8.0], [1.0,2.0] ]) # initialization
-max_iter  = 3
+max_iter  = 4
 
 print "number of features: %d" % n_features
 print "number of samples: %d" % n_samples
 print
 
 
-# kmeans 
+# kmeans
+#for i in range(1,max_iter):
 kmeans = KMeans(init=init_cluster, max_iter=max_iter, n_init=1).fit(data) # (n_init=1 not necessary)
 
-print  
+print
+#print "Iteration:", i
 print "cluster center: "
 print kmeans.cluster_centers_
 print
 print "labels of training patterns: "
 print kmeans.labels_
-print 
+print
 print "max_iter"
 print kmeans.max_iter
 
@@ -79,4 +81,5 @@ pl.title('K-means clustering algorithm\n'
          'Initial cluster center are marked with big red circle\n'
          'Final cluster center are marked with white cross')
 pl.axis('tight')
+pl.savefig('../3b.pdf')
 pl.show()
