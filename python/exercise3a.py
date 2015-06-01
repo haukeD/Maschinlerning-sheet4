@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 
 D = np.array([[2, 10], [2, 5], [8, 4], [5, 8], [7, 5], [6, 4], [1, 2], [4, 9]])
@@ -35,3 +36,8 @@ for i in range(-1, D.shape[0]):
 print "\\end{tabular}"
 print "}"
 print "\\end{table}"
+
+plt.plot(D[:,0], D[:,1],'o')
+plt.grid(b=True, which='both', color='0.65',linestyle='-')
+
+plt.savefig('../3a.pdf')
