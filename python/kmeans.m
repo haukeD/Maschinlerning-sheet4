@@ -7,12 +7,13 @@
 
 clear all; close all; clc;
 
+for k = 8:255
 
 % Load small image
 A = double(imread('bird_small.tiff'));
 
 dim = size(A,1); % number of pixels in picture's length/width
-k = 16; % number of colors to represent
+%k = 32; % number of colors to represent
 
 % Initialize means to randomly-selected colors in the original photo.
 means = zeros(k, 3);
@@ -93,7 +94,7 @@ end
 imshow(uint8(round(large_image))); hold off
 
 % Save image
-imwrite(uint8(round(large_image)), 'bird_kmeans.jpg');
+imwrite(uint8(round(large_image)), strcat('bird_kmeans',num2str(k,'%03d'),'.jpg'));
 
 
 
@@ -105,3 +106,5 @@ imwrite(uint8(round(large_image)), 'bird_kmeans.jpg');
 %    rectangle('Position', [i, 0, 1, 1], 'FaceColor', col, 'EdgeColor', col);
 % end
 % axis off
+
+end

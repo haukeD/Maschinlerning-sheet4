@@ -14,25 +14,25 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import scale
 
-np.random.seed() # an integer (e.g. 42) FIXES the seed!
+np.random.seed(42) # an integer (e.g. 42) FIXES the seed!
 
 # load data
-data = np.loadtxt('spaeth_01.txt')         # training data
+data = np.loadtxt('spaeth_05.txt')         # training data
 
 n_samples, n_features = data.shape
 
 # specify parameters of kmeans
-n_cluster = 3
+n_cluster = 2
 max_iter  = 100
-initialization = "k-means++" # "manual", "k-means++", "random" or "pca"
+initialization = "manual" # "manual", "k-means++", "random" or "pca"
 
 if initialization == "manual":
-    init_cluster = np.array([ [10.0,35.0], [35.0,15.0],  [40.0,40.0] ])
+    init_cluster = np.array([ [10.0,35.0], [35.0,15.0]]) #,  [40.0,40.0]
     # number of cluster determined from size of init_cluster
     # same for pca initialization
 
 elif initialization == "k-means++" or initialization == "random":
-    n_cluster = 3
+    n_cluster = 2
 
 print "number of features: %d" % n_features
 print "number of samples: %d" % n_samples
@@ -44,21 +44,21 @@ print
 if initialization == "manual":
     print "manual initialization with"
     print init_cluster
-    kmeans = KMeans(init=init_cluster, k=n_cluster, n_init=1, max_iter=max_iter).fit(data)
+    kmeans = KMeans(init=init_cluster, n_clusters=n_cluster, n_init=1, max_iter=max_iter).fit(data)
 
 elif initialization == "k-means++":
     print "k-means++ initialization"
-    kmeans = KMeans(init='k-means++', k=n_cluster, n_init=1, max_iter=max_iter).fit(data)
+    kmeans = KMeans(init='k-means++', n_clusters=n_cluster, n_init=1, max_iter=max_iter).fit(data)
     
 elif initialization == "random":
     print "random initialization"    
-    kmeans = KMeans(init='random', k=n_cluster, n_init=1, max_iter=max_iter).fit(data)
+    kmeans = KMeans(init='random', n_clusters=n_cluster, n_init=1, max_iter=max_iter).fit(data)
 
 elif initialization == "pca":
     print "pca initialization"
     # PCA components initialization
     pca = PCA(n_components=n_cluster).fit(data)
-    kmeans = KMeans(init=pca.components_, k=n_cluster, n_init=1).fit(data)
+    kmeans = KMeans(init=pca.components_, n_clusters=n_cluster, n_init=1).fit(data)
 
 else:
     print "unknown initialization"
