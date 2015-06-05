@@ -340,17 +340,16 @@ A & B & C & D & $A \land B$ & $C \land D$ & $[A \land B] \lor [C \land D]$ \\
          \edge node[midway,left] {$0$};
          [.no ]
          \edge node[midway,right] {$1$};
-         [.B 
+         [.yes ]
+       ]
+        ]
+    \edge node[auto=left] {$1$};
+    [.B 
           \edge node[midway,left] {$0$};
           [.no ]
           \edge node[midway,right] {$1$};
           [.yes ]
-         ]
-       ]
-        ]
-    \edge node[auto=left] {$1$};
-    [.yes
-        ]
+    ]
 ]
 \end{tikzpicture}
 
@@ -439,7 +438,35 @@ Entscheidungsbaum auch so sein kann.
 ]
 \end{tikzpicture}
 
+\subsection{b)}
+
+
+S : Klassen "Study"
+            "Party"
+$$
+H(S) = ln (P("Party")) \cdot P("Party") + ln (P("Study")) \cdot P("Study")
+= \frac{5}{11} \cdot -0,78845736036427016946118424473894
+   \frac{6}{11} \cdot -0,60613580357031554324946621958443 
+= -0,35838970925648644066417465669952 -0,33061952922017211449970884704605
+$$
+
+$$
+S_1 : \text{Deadline}
+\text{Urgen} = }\frac{3}{11}
+\text{near} = \frac{5}{11}
+none \frac{3}{11}
+S_2 : \text{Party?}
+\text{yes} = \frac{5}{11}
+\text{no} = \frac{6}{11}
+$$
+
 \subsection{c)}
+
+$$
+p_{\text{study}} = \frac{3}{11}, p_{\text{party}} = \frac{5}{11}, p_{\text{tv}} = \frac{2}{11}, p_{\text{pub}} = \frac{1}{11}
+$$
+
+
 
 \begin{tikzpicture}[every tree node/.style={draw,circle},
    level distance=2.25cm,sibling distance=2cm,
@@ -818,24 +845,49 @@ Der minimale Wert von \textit{max\_iter} ist $3$, wie in \autoref{fig:exercise3b
 
 \subsection{c)}
 
-\begin{figure}
-\centering
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[scale=0.5]{3cRND1}
-\end{subfigure}
-\qquad
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[scale=0.5]{3cRND2}
-\end{subfigure} \\
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[scale=0.5]{3cRND3}
-\end{subfigure}
-\qquad
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[scale=0.5]{3cRND4}
-\end{subfigure}
-\caption{4 Bildchen}
-\end{figure}
+\subsubsection{ K-Means ++ Initialisierung: }
+\begin{minipage}{\textwidth}
+
+\includegraphics[scale=0.4]{spaeth_01_2clu.png}
+\includegraphics[scale=0.4]{spaeth_01_3clu.png}
+\includegraphics[scale=0.4]{spaeth_01_4clu.png}
+\captionof{figure}{Verschiedene Cluster Anzahlen im Vergleich}
+\end{minipage}
+\newline
+
+
+Um ein gutes Clustering zu erhalten muss die Anzahl der Cluster stimmen. Es ist deutlich zu sehen, dass 3 die ideale Anzahl ist. Im Fall von 2 Clustern werden Punkte zusammengefasst, die nicht direkt zusammengehören und bei 4 Clustern werden Punkte getrennt, welche offensichtlich zusammengehören. 
+\subsubsection{Random Initialisierung: }
+
+\begin{minipage}{\textwidth}
+	\includegraphics[scale=0.5]{spaeth_01_3clu_ran.png}
+\includegraphics[scale=0.5]{spaeth_01_3clu_ran42.png}
+    \captionof{figure}{np.random.seed(1) und np.random.seed(42) im Vergleich}
+\end{minipage} \newline
+
+Die initialen Bedingung scheinen eine große Rolle zu spielen für das Ergebnis des Clusterings. Bei schlechten initialen Zentren erhält meine eine schlechtes Clustering. K-Means-Clustering liefert nur ein lokales Optimum. \\
+
+Als Folgerung ergibt sich, dass man die richtige Anzahl von Clustern benötigt und vernünftige Startzentren, anderen Falls kann man schlechte Lösungen erhalten.
+
+\subsection{d)}
+Die Punkte lassen sich mit dem K-Means-Clustering nicht gut clustern, weil es sich um Punkte handelt, die entlang von Geraden verteilt sind und nicht konzentrisch um einen Punkt.\\
+
+\begin{minipage}{\textwidth}
+	\includegraphics[scale=0.5]{spaeth_05_2clu.png}
+	\includegraphics[scale=0.5]{spaeth_05_3clu.png}
+    \captionof{figure}{Spaeth05 mit 2 und 3 Clustern}
+\end{minipage}
+
+
+\subsection{e)}
+
+
+
+\begin{minipage}{\textwidth}
+	\includegraphics[scale=0.5]{vogel2farben.png}
+	\includegraphics[scale=0.5]{vogel16farben.png}
+    \captionof{figure}{KMeans-Clustering mit 2 und 16 Farben}
+\end{minipage}
 
 
 \end{document}

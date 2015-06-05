@@ -45,3 +45,13 @@ Temporary Items
 *.log
 sheet4.pdf
 *.gz
+*.aux
+*.log
+*.gz
+*.log
+sheet4.out
+*.aux
+*.log
+*.log
+*.out
+*.gz
