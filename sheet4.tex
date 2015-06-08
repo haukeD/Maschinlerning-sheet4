@@ -28,6 +28,9 @@
 \usepackage{multicol}
 \usepackage{xspace}
 
+%http://www.kkittel.de/wiki/doku.php?id=tabellen:farbige_zellen
+\usepackage{colortbl}
+
 \usepackage{algorithmic} 
 \usepackage{wasysym}
 \usepackage[ngerman]{babel}
@@ -611,6 +614,38 @@ Wie in \autoref{fig:3c} zu sehen ist, ist nur beim Random-Algorithmus ein unters
 %    ]
 %]
 %\end{tikzpicture}
+
+\subsection{d)}
+\subsubsection{i)}
+\begin{tabular}{|c|c|c|}
+\hline
+Nr. & Entscheidungsbaum Entscheidung & Testdatenergebnis \\
+\hline
+\rowcolor{red} 1 & Study & TV \\
+\hline
+\rowcolor{green} 2 & Study & Study \\
+\hline
+\rowcolor{red} 3 & PUB & TV \\
+\hline
+\rowcolor{green} 4 & Party & Party \\
+\hline
+\rowcolor{red} 5 & PUB & Study \\
+\hline
+\end{tabular}
+
+$40\%$ sind richtig und $60\%$ sind falsch.
+
+\subsubsection{ii)}
+\label{subsubsec:2d}
+
+\includegraphics[scale=0.9]{2d2}
+
+Nur beim 1. Testdatum kommt jetzt das gewünschte Ergebnis, somit sind $60\%$ richtig und $40\%$ falsch.
+
+\subsubsection{iii)}
+
+\includegraphics[scale=1]{2d3} \\
+Das ergebniss ist wie in \nameref{subsubsec:2d}.
 
 \section{Exercise 3 (Unsupervised learning – k-means clustering):}
 
