@@ -1,0 +1,17 @@
+T: Deadline,  party,  Lazy,  Evening-activity
+A: Urgent, Yes, Yes, Party;
+A: Urgent, No, Yes, Study;
+A: Near, Yes, Yes, Party;
+A: None, Yes, No, Party;
+A: None, No, Yes, Pub;
+A: None, Yes, No, Party;
+A: Near, No, No, Study;
+A: Near, No, Yes, TV;
+A: Near, Yes, Yes, Party;
+A: Urgent, No, No, Study;
+A: Near, No, Yes, TV;
+B: Near, No, No, TV;
+B: Urgent, No, No, Study;
+B: None, No, Yes, TV;
+B: Near, Yes, No, Party;
+B: None, No, No, Study;
