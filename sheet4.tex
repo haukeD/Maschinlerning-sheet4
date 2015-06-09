@@ -498,13 +498,18 @@ $$
 H(S_2) = - \frac{0}{6} \cdot ld(\frac{0}{6}) -\frac{6}{6} \cdot ld(\frac{6}{6}) = 0
 $$
 
-$$=
-Gain(S,A) = H(S) - \sum_{v \in values(A)} \frac{|S_v|}{|S|} H(S_v) = 
-0,994030211476957 - \frac{1}{11}\left(
-3 \cdot 0,91829583405449 +  
-5 \cdot 0,970950594454669 +  
-3 \cdot 0,91829583405449 \right) = 0,994030211476957 - 0,94222981605457 = 0,05180039542239
-$$
+\begin{flalign*}
+%\begin{equation*}
+%\begin{split}
+%\begin{aligned}
+&Gain(S,A) = H(S) - \sum_{v \in values(A)} \frac{|S_v|}{|S|} H(S_v) & \\
+&= 0,994030211476957 - \frac{1}{11}\left(3 \cdot 0,91829583405449 +  5 \cdot 0,970950594454669 +  3 \cdot 0,91829583405449 \right) = & \\
+&0,994030211476957 - 0,94222981605457 = 0,05180039542239 & \\
+%\end{aligned}
+%\end{split}
+%\end{equation*}
+\end{flalign*}
+
 
 $$
 Gain(S,B) = H(S) - \sum_{v \in values(B)} \frac{|S_v|}{|S|} H(S_v) = H(S) - 0 = 0,994030211476957
